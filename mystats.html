@@ -48,5 +48,41 @@
                 <td>6 HRS</td>
             </tr>   
         </table>
+        <hr>
+        <h3>BLOCK QUOTE AND CODE FENCING:</h3>
+        <blockquote>How to fix a header on scroll?</blockquote>
+        <a href="//stackoverflow.com/questions/19158559/how-to-fix-a-header-on-scroll">Stackoverflow Link</a>
+        <h4>SNIPPET CODE FROM CSS TRICKS:</h4>
+        <pre>
+            function UpdateTableHeaders() {
+                $("div.divTableWithFloatingHeader").each(function() {
+                    offset = $(this).offset();
+                    scrollTop = $(window).scrollTop();
+                    if ((scrollTop > offset.top) && (scrollTop < offset.top + $(this).height())) {
+                        $(".tableFloatingHeader", this).css("visibility", "visible");
+                        $(".tableFloatingHeader", this).css("top", Math.min(scrollTop - offset.top, $(this).height() - $(".tableFloatingHeader", this).height()) + "px");
+                    }
+                    else {
+                        $(".tableFloatingHeader", this).css("visibility", "hidden");
+                        $(".tableFloatingHeader", this).css("top", "0px");
+                    }
+                })
+             }
+             
+             $(document).ready(function() {
+                $("table.tableWithFloatingHeader").each(function() {
+                    $(this).wrap(class="divTableWithFloatingHeader" style="position:relative");
+                    $("tr:first", this).before($("tr:first", this).clone());
+                    clonedHeaderRow = $("tr:first", this)
+                    clonedHeaderRow.addClass("tableFloatingHeader");
+                    clonedHeaderRow.css("position", "absolute");
+                    clonedHeaderRow.css("top", "0px");
+                    clonedHeaderRow.css("left", "0px");
+                    clonedHeaderRow.css("visibility", "hidden");
+                });
+                UpdateTableHeaders();
+                $(window).scroll(UpdateTableHeaders);
+             });
+        </pre>
     </body>
 </html> 
