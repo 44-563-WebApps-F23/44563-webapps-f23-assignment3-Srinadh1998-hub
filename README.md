@@ -3,4 +3,4 @@
 Assignment 3 - Basic HTML
 
 Hosted at:
-https://github.com/44-563-WebApps-F23/44563-webapps-f23-assignment3-Srinadh1998-hub/settings/pages
+<a href= "https://github.com/44-563-WebApps-F23/44563-webapps-f23-assignment3-Srinadh1998-hub/settings/pages">Pages link in my repo</a>
